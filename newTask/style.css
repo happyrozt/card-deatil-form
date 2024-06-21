@@ -1,0 +1,1236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+
+  display: flex;
+}
+
+.card_container {
+  background-image: url('../interactive-card-details-form-main/images/bg-main-desktop.png');
+  height: 100vh;
+  width: 23%;
+  color: aliceblue;
+
+}
+
+.contentContainer {
+  height: 100vh;
+  width: 77%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+.card1 {
+  background-image: url("../interactive-card-details-form-main/images/bg-card-front.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 359px;
+  height: 235px;
+  position: absolute;
+  top: 16%;
+  left: 13%;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cardlogo {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+
+}
+
+
+.cardFroncontent {
+  display: flex;
+  font-size: 25px;
+  letter-spacing: 1px;
+  font-family: 'space Grotesk';
+
+}
+
+
+.cardFroncontenDiv {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  font-family: 'space Grotesk';
+}
+
+.cardIneerDiv {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+
+.card2 {
+  background-image: url("../interactive-card-details-form-main/images/bg-card-back.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 359px;
+  height: 235px;
+  position: absolute;
+  top: 53%;
+  left: 18%;
+  border-radius: 10px;
+
+}
+
+
+
+
+.card2InnerContent {
+  position: absolute;
+  color: white;
+  padding-left: 85%;
+  padding-top: 30%;
+  font-family: 'space Grotesk';
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.detail_input {
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.detail_input label {
+  padding-bottom: 5px;
+  padding-top: 25px;
+  font-size: 13px;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  font-family: 'space Grotesk';
+  letter-spacing: 1px;
+}
+
+
+
+.detail_input input {
+  padding: 10px;
+  padding-bottom: 7px;
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.expCvv_input {
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  font-family: 'space Grotesk';
+
+
+}
+
+.expCvv_input label {
+
+  font-size: 13px;
+  font-family: 'space Grotesk';
+  color: hsl(278, 68%, 11%);
+  letter-spacing: 1px;
+}
+
+.labelforEXP_Date {
+  padding-top: 1px;
+  padding-bottom: 6px;
+
+}
+.labelforEXP_Date span {
+  padding: 25px;
+}
+
+.expCvv {
+  display: flex;
+  justify-content: space-between;
+  /* padding-top: 10px; */
+
+}
+
+
+.inputcvvDiv {
+  width: 100%;
+}
+
+.expCvv input {
+  flex: 1;
+  padding: 10px;
+  font-family: 'space Grotesk';
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 5px;
+  font-size: 15px;
+  color: hsl(278, 68%, 11%);
+  width: 100%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); */
+}
+
+#month {
+  width: 60px
+}
+
+#year {
+  width: 60px;
+}
+
+
+
+
+button {
+  padding: 10px;
+  background: hsl(278, 68%, 11%);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  font-family: 'space Grotesk';
+  width: 100%;
+
+}
+
+.formButton {
+  padding-top: 30px;
+}
+
+button:hover {
+  background: hsl(278, 68%, 11%);
+}
+
+
+
+
+
+input[type=text]:focus {
+  border: 2px solid hsl(249, 99%, 64%);
+  color: hsl(278, 68%, 11%);
+}
+
+
+
+#error1 {
+  color: red;
+  display: none;
+  font-family: 'space Grotesk';
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 4px;
+  /* margin-top: 3px; */
+}
+
+#error2 {
+  color: red;
+  display: none;
+  font-family: 'space Grotesk';
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 4px;
+  /* margin-top: 3px; */
+}
+
+#error3 {
+  color: red;
+  display: none;
+  font-family: 'space Grotesk';
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 4px;
+  /* margin-top: 3px; */
+}
+
+#error4 {
+  color: red;
+  display: none;
+  font-family: 'space Grotesk';
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 4px;
+  /* margin-top: 3px; */
+}
+#error5 {
+  color: red;
+  display: none;
+  font-family: 'space Grotesk';
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 4px;
+
+  /* margin-top: 3px; */
+}
+
+.complteScreen {
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'space Grotesk';
+
+
+}
+
+
+.complteScreenInnerDiv {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 430px;
+  padding: 30px;
+}
+
+.complteScreenImgidiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.completedScreenh2 {
+
+  font-size: 26px;
+  font-family: 'space Grotesk';
+  font-weight: 500;
+  letter-spacing: 3px;
+
+
+}
+
+.completedScreenh2div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-family: 'space Grotesk';
+  font-weight: 500;
+  letter-spacing: 3px;
+  padding: 10px;
+
+}
+
+.completedScreenhtext {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-family: 'space Grotesk';
+  font-weight: 500;
+
+  color: hsl(279, 6%, 55%);
+  padding: 8px;
+}
+
+.complteScreenButtondiv {
+  padding: 25px;
+}
+
+.complteScreenButton {
+  padding: 10px;
+  background: hsl(278, 68%, 11%);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  font-family: 'space Grotesk';
+  width: 100%;
+}
+
+
+@media (max-width: 1290px) and (min-width:748px) {
+  .card1 {
+
+    width: 350px;
+    height: 230px;
+    position: absolute;
+    top: 16%;
+    left: 15%;
+    border-radius: 10px;
+    padding: 20px;
+  
+  
+  }
+  
+  .cardlogo {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  
+  
+  }
+  
+  
+  .cardFroncontent {
+    display: flex;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-family: 'space Grotesk';
+  
+  }
+  
+  
+  .cardFroncontenDiv {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    font-family: 'space Grotesk';
+  }
+  
+  .cardIneerDiv {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  
+  
+  .card2 {
+    width: 350px;
+    height: 230px;
+    top: 53%;
+    left: 20%;
+    border-radius: 10px;
+  
+  }
+  
+  
+  
+  
+  .card2InnerContent {
+    position: absolute;
+    color: white;
+    padding-left: 85%;
+    padding-top: 30%;
+    font-family: 'space Grotesk';
+  }
+  .complteScreen {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'space Grotesk';
+  
+  
+  }
+
+}
+
+
+@media (max-width: 1366px)  {
+  .card_container {
+    background-image: url('../interactive-card-details-form-main/images/bg-main-desktop.png');
+    height: 100vh;
+    width: 25%;
+
+  
+  }
+  
+  .contentContainer {
+    height: 100vh;
+    width: 75%;
+ 
+  
+  }
+  
+  
+  
+  .card1 {
+  
+    position: absolute;
+    top: 18%;
+    left: 4%;
+  }
+  
+
+  
+  
+  .card2 {
+    width: 359px;
+    height: 235px;
+    position: absolute;
+    top: 54%;
+    left: 8%;
+    border-radius: 10px;
+  
+  }
+  
+
+}
+
+
+@media (max-width: 1279px)  {
+  .card_container {
+    background-image: url('../interactive-card-details-form-main/images/bg-main-desktop.png');
+    height: 100vh;
+    width: 25%;
+
+  
+  }
+  
+  .contentContainer {
+    height: 100vh;
+    width: 75%;
+ 
+  
+  }
+  
+  
+  
+  .card1 {
+  
+    position: absolute;
+    top: 22%;
+    left: 5%;
+  }
+  
+
+  
+  
+  .card2 {
+    width: 359px;
+    height: 235px;
+    position: absolute;
+    top: 54%;
+    left: 10%;
+    border-radius: 10px;
+  
+  }
+  
+
+}
+
+
+@media (max-width: 1279px)  {
+  .card_container {
+    background-image: url('../interactive-card-details-form-main/images/bg-main-desktop.png');
+    height: 100vh;
+    width: 20%;
+
+  
+  }
+  
+  .contentContainer {
+    height: 100vh;
+    width: 80%;
+ 
+  
+  }
+  
+  
+  
+  .card1 {
+  
+    position: absolute;
+    top: 20%;
+    left: 1%;
+  }
+  
+
+  
+  
+  .card2 {
+    width: 359px;
+    height: 235px;
+    position: absolute;
+    top: 55%;
+    left: 4%;
+    border-radius: 10px;
+  
+  }
+  
+
+}
+
+@media (max-width: 980px ){
+
+  body {
+
+    display: flex;
+    flex-direction: column;
+  
+  }
+  .card_container {
+    height: 33vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  
+  
+  .card1 {
+    width: 350px;
+    height: 190px;
+    z-index: 2;
+    position: absolute;
+    top: 19%;
+    left: 30%;
+  }
+  
+  .card2 {
+    width: 345px;
+    height: 190px;
+    top: 4%;
+    left: 34%;
+    border-radius: 10px;
+
+  
+  }
+
+  .contentContainer {
+    height: 67vh;
+    width: 100%;
+    color: black;
+  
+  
+  }
+
+  .cardFroncontent {
+    display: flex;
+    font-size: 19px;
+
+  
+  }
+  .card2InnerContent {
+    padding-top: 25%;
+    padding-left: 80%;
+    font-size: 13px;
+  }
+  .cardFroncontenDiv{
+   font-size: 12px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  .detail_input label {
+    padding-bottom: 3px;
+    padding-top: 20px;
+ 
+  }
+
+  .expCvv input {
+    flex: 1;
+    padding: 10px;
+    font-family: 'space Grotesk';
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 5px;
+    font-size: 15px;
+    color: hsl(278, 68%, 11%);
+    width: 100%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); */
+  }
+
+  button {
+    padding: 10px;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: 'space Grotesk';
+    width: 100%;
+  
+  }
+  .formButton {
+    padding-top: 20px;
+  }
+  
+  .complteScreen {
+    width: 100%;
+    height: 67vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'space Grotesk';
+  
+  
+  }
+
+}
+
+@media (max-width: 720px ){
+
+  body {
+
+    display: flex;
+    flex-direction: column;
+  
+  }
+  .card_container {
+    height: 33vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  
+  
+  .card1 {
+    width: 350px;
+    height: 190px;
+    z-index: 2;
+    position: absolute;
+    top: 19%;
+    left: 25%;
+  }
+  
+  .card2 {
+    width: 345px;
+    height: 190px;
+    top: 4%;
+    left: 30%;
+    border-radius: 10px;
+
+  
+  }
+
+  .contentContainer {
+    height: 67vh;
+    width: 100%;
+    color: black;
+  
+  
+  }
+
+  .cardFroncontent {
+    display: flex;
+    font-size: 19px;
+
+  
+  }
+  .card2InnerContent {
+    padding-top: 25%;
+    padding-left: 80%;
+    font-size: 13px;
+  }
+  .cardFroncontenDiv{
+   font-size: 12px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  .detail_input label {
+    padding-bottom: 3px;
+    padding-top: 20px;
+ 
+  }
+
+  .expCvv input {
+    flex: 1;
+    padding: 10px;
+    font-family: 'space Grotesk';
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 5px;
+    font-size: 15px;
+    color: hsl(278, 68%, 11%);
+    width: 100%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); */
+  }
+
+  button {
+    padding: 10px;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: 'space Grotesk';
+    width: 100%;
+  
+  }
+  .formButton {
+    padding-top: 20px;
+  }
+  
+ 
+
+}
+@media (max-width: 600px ) {
+
+  body {
+
+    display: flex;
+    flex-direction: column;
+  }
+  .card_container {
+    height: 33vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  
+  
+  .card1 {
+    width: 350px;
+    height: 190px;
+    z-index: 2;
+    position: absolute;
+    top: 19%;
+    left: 19%;
+  }
+  
+  .card2 {
+    width: 345px;
+    height: 190px;
+    top: 4%;
+    left: 25%;
+    border-radius: 10px;
+
+  
+  }
+
+  .contentContainer {
+    height: 67vh;
+    width: 100%;
+    color: black;
+  
+  
+  }
+
+  .cardFroncontent {
+    display: flex;
+    font-size: 19px;
+
+  
+  }
+  .card2InnerContent {
+    padding-top: 25%;
+    padding-left: 80%;
+    font-size: 13px;
+  }
+  .cardFroncontenDiv{
+   font-size: 12px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  .detail_input label {
+    padding-bottom: 3px;
+    padding-top: 20px;
+ 
+  }
+
+  .expCvv input {
+    flex: 1;
+    padding: 10px;
+    font-family: 'space Grotesk';
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 5px;
+    font-size: 15px;
+    color: hsl(278, 68%, 11%);
+    width: 100%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); */
+  }
+
+  button {
+    padding: 10px;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: 'space Grotesk';
+    width: 100%;
+  
+  }
+  .formButton {
+    padding-top: 20px;
+  }
+  
+ 
+
+}
+@media  (max-width :490px)  {
+
+  body {
+
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .card_container {
+    height: 35vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  
+  
+  .card1 {
+    width: 338px;
+    height: 170px;
+    z-index: 2;
+    position: absolute;
+    top: 17%;
+    left: 13%;
+  }
+  
+  .card2 {
+    width: 338px;
+    height: 170px;
+    top: 2%;
+    left: 19%;
+    border-radius: 10px;
+   
+  
+  }
+
+  .contentContainer {
+    height: 65vh;
+    width: 100%;
+    color: black;
+  
+  
+  }
+
+  .cardFroncontent {
+    display: flex;
+    font-size: 19px;
+
+  
+  }
+  .card2InnerContent {
+    padding-top: 24%;
+    padding-left: 80%;
+    font-size: 13px;
+  }
+  .cardFroncontenDiv{
+   font-size: 12px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  .detail_input label {
+    padding-bottom: 3px;
+    padding-top: 18px;
+ 
+  }
+
+  .expCvv input {
+    flex: 1;
+    padding: 8px;
+    font-family: 'space Grotesk';
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 5px;
+    font-size: 15px;
+    color: hsl(278, 68%, 11%);
+    width: 100%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); */
+  }
+
+  button {
+    padding: 7px;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: 'space Grotesk';
+    width: 100%;
+  
+  }
+  .formButton {
+    padding-top: 20px;
+  }
+ 
+
+}
+
+@media  (max-width :416px)  {
+
+  body {
+
+    display: flex;
+    flex-direction: column;
+  }
+  .card_container {
+    height: 35vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  
+  
+  .card1 {
+    width: 338px;
+    height: 170px;
+    z-index: 2;
+    position: absolute;
+    top: 17%;
+    left: 4%;
+  }
+  
+  .card2 {
+    width: 338px;
+    height: 170px;
+    top: 2%;
+    left: 11%;
+    border-radius: 10px;
+   
+  
+  }
+
+  .contentContainer {
+    height: 65vh;
+    width: 100%;
+    color: black;
+  
+  
+  }
+
+  .cardFroncontent {
+    display: flex;
+    font-size: 19px;
+
+  
+  }
+  .card2InnerContent {
+    padding-top: 24%;
+    padding-left: 80%;
+    font-size: 13px;
+  }
+  .cardFroncontenDiv{
+   font-size: 12px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  .detail_input label {
+    padding-bottom: 3px;
+    padding-top: 18px;
+ 
+  }
+
+  .expCvv input {
+    flex: 1;
+    padding: 8px;
+    font-family: 'space Grotesk';
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 5px;
+    font-size: 15px;
+    color: hsl(278, 68%, 11%);
+    width: 100%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); */
+  }
+
+  button {
+    padding: 7px;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: 'space Grotesk';
+    width: 100%;
+  
+  }
+  .formButton {
+    padding-top: 20px;
+  }
+ 
+
+}
+
+@media(max-width :376px)  {
+
+  body {
+
+    display: flex;
+    flex-direction: column;
+   
+ 
+  }
+  .card_container {
+    height: 40vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  
+  
+  .card1 {
+    width: 320px;
+    height: 168px;
+    z-index: 2;
+    position: absolute;
+    top: 17%;
+    left: 5%;
+  }
+  
+  .card2 {
+    top: 2%;
+    left: 10%;
+    border-radius: 10px;
+    width: 320px;
+    height: 168px;
+  
+  }
+
+  .contentContainer {
+    height: 60vh;
+    width: 100%;
+    color: black;
+  
+  
+  }
+
+  .cardFroncontent {
+    display: flex;
+    font-size: 19px;
+
+  
+  }
+  .card2InnerContent {
+    padding-top: 24%;
+    padding-left: 80%;
+    font-size: 13px;
+  }
+  .cardFroncontenDiv{
+   font-size: 12px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  .detail_input label {
+    padding-bottom: 3px;
+    padding-top: 20px;
+ 
+  }
+
+  .expCvv input {
+    flex: 1;
+    padding: 5px;
+    font-family: 'space Grotesk';
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 5px;
+    font-size: 15px;
+    color: hsl(278, 68%, 11%);
+    width: 100%;
+
+  }
+
+  button {
+    padding: 7px;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: 'space Grotesk';
+    width: 100%;
+  
+  }
+  
+ 
+
+}
+
+
+
+
+
+

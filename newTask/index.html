@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Interactive Card Details Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card_container">
+    <div class="card1">
+      <div class="cardlogo">
+        <div class="logo-img">
+          <svg width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff" />
+            <path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff" />
+          </svg>
+        </div>
+        <div class="cardIneerDiv">
+          <div class="cardFroncontent" id="showCardNumber">0000 0000 0000 0000</div>
+          <div class="cardFroncontenDiv">
+            <div id="showCardName">Happy </div>
+            <div><span id="showCardmonth">00</span>/<span id="showCardyear">00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card2">
+      <div class="card2Content">
+        <div class="card2InnerContent" id="showCardcvv">000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contentContainer" id="formContent">
+    <form action="" class="form" id="formData">
+      <div class="detail_input">
+        <label for="card_holder" class="details_label">CARDHOLDER NAME</label>
+        <input type="text" placeholder="e.g Happy Rozta" style="font-family: 'Space Grotesk';" id="cardName" oninput="cardValueforname(event)">
+        <p id="error1">Please enter Card Holder Name</p>
+      </div>
+      <div class="detail_input">
+        <label for="card_holder">CARD NUMBER</label>
+        <input type="text" style="font-family: 'Space Grotesk';" placeholder="e.g 1234 5678 9087 " id="cardNumber" oninput="cardValuefornumber(event)">
+        <p id="error2">Wrong format, numbers only</p>
+      </div>
+      <div class="expCvv_input">
+        <div class="labelforEXP_Date">
+          <label for="card_holder">EXP.DATE (MM/YY) <span>CVV</span></label>
+        </div>
+        <div class="expCvv">
+          <div>
+            <input type="text" placeholder="MM" id="month" oninput="cardValueformonth(event)">
+            <input type="text" placeholder="YY" id="year" oninput="cardValueforyear(event)">
+            <p id="error3">Can't be blank</p>
+            <p id="error5">Invalid month and year</p>
+          </div>
+          <div>
+            <input type="text" placeholder="e.g 123" class="inputcvvDiv" id="cvv" oninput="cardValueforcvv(event)">
+            <p id="error4">Can't be blank</p>
+          </div>
+        </div>
+      </div>
+      <div class="formButton">
+        <button type="submit">Confirm</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="complteScreen" class="complteScreen" style="display: none;">
+    <div class="complteScreenInnerDiv">
+      <div class="complteScreenImgidiv">
+        <img src="../interactive-card-details-form-main/images/icon-complete.svg" alt="completed">
+      </div>
+      <div class="completedScreenh2div">
+        <h2 class="completedScreenh2">THANK YOU!</h2>
+      </div>
+      <div class="completedScreenhtext">
+        <p>We've added your card details </p>
+      </div>
+      <div class="complteScreenButtondiv">
+        <button class="complteScreenButton">Continue</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  document.getElementById("formData").addEventListener('submit', addData);
+
+  function cardValueforname(event) {
+    let cardHolderName = event.target.value.replace(/[^a-zA-Z ]/g, '').substring(0, 28);
+    let spaceCount = (cardHolderName.match(/ /g) || []).length;
+
+    if (spaceCount > 4 || /^\s*$/.test(cardHolderName)) {
+      document.getElementById('error1').style.display = 'block';
+      document.getElementById("cardName").style.border = '1px solid hsl(0, 100%, 66%)';
+    } else {
+      if (cardHolderName.length > 16) {
+        cardHolderName = cardHolderName.substring(0, 16) + '<br>' + cardHolderName.substring(16);
+      }
+      document.getElementById("showCardName").innerHTML = cardHolderName;
+      document.getElementById('error1').style.display = 'none';
+      document.getElementById("cardName").style.border = '1px solid hsl(249, 99%, 64%)';
+    }
+    event.target.value = cardHolderName.replace('<br>', '');
+  }
+
+  function cardValuefornumber(event) {
+    let cardNumber = event.target.value.replace(/[^0-9]/g, '').substring(0, 16);
+    let formattedCardNumber = cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+
+    if (cardNumber.length !== 16) {
+      document.getElementById('error2').style.display = 'block';
+      document.getElementById("cardNumber").style.border = '1px solid hsl(0, 100%, 66%)';
+    } else {
+      document.getElementById('error2').style.display = 'none';
+      document.getElementById("cardNumber").style.border = '1px solid hsl(249, 99%, 64%)';
+    }
+    document.getElementById("showCardNumber").innerHTML = formattedCardNumber;
+    event.target.value = formattedCardNumber;
+  }
+
+  function cardValueformonth(event) {
+    let cardMonth = event.target.value.replace(/[^0-9]/g, '').substring(0, 2);
+    let cardYear = document.getElementById("year").value;
+
+    let currentMonth = new Date().getMonth() + 1;
+    let currentYear = new Date().getFullYear().toString().slice(-2); 
+
+    if (cardMonth < 1 || cardMonth > 12 || (cardYear === currentYear && cardMonth < currentMonth)) {
+      document.getElementById('error3').style.display = 'block';
+      document.getElementById("month").style.border = '1px solid hsl(0, 100%, 66%)';
+      document.getElementById("error3").innerHTML = 'Invalid Month';
+    } else {
+      document.getElementById('error3').style.display = 'none';
+      document.getElementById("month").style.border = '1px solid hsl(249, 99%, 64%)';
+    }
+    document.getElementById("showCardmonth").innerHTML = cardMonth;
+    event.target.value = cardMonth;
+  }
+
+  function cardValueforyear(event) {
+    let cardYear = event.target.value.replace(/[^0-9]/g, '').substring(0, 2);
+    let cardMonth = document.getElementById("month").value;
+
+    let currentMonth = new Date().getMonth() + 1;
+    let currentYear = new Date().getFullYear().toString().slice(-2);
+
+    if (cardYear < currentYear || cardYear > 30 || (cardYear === currentYear && cardMonth < currentMonth)) {
+      document.getElementById('error3').style.display = 'block';
+      document.getElementById("year").style.border = '1px solid hsl(0, 100%, 66%)';
+      document.getElementById("error3").innerHTML = 'Invalid Month and Year';
+    } else {
+      document.getElementById('error3').style.display = 'none';
+      document.getElementById("year").style.border = '1px solid hsl(249, 99%, 64%)';
+    }
+    document.getElementById("showCardyear").innerHTML = cardYear;
+    event.target.value = cardYear;
+  }
+
+  function cardValueforcvv(event) {
+    let cardCvv = event.target.value.replace(/[^0-9]/g, '').substring(0, 3);
+
+    if (cardCvv.length !== 3) {
+      document.getElementById('error4').style.display = 'block';
+      document.getElementById('error4').innerHTML = 'Invalid CVV';
+      document.getElementById("cvv").style.border = '1px solid hsl(0, 100%, 66%)';
+    } else {
+      document.getElementById('error4').style.display = 'none';
+      document.getElementById("cvv").style.border = '1px solid hsl(249, 99%, 64%)';
+    }
+    document.getElementById("showCardcvv").innerHTML = cardCvv;
+    event.target.value = cardCvv;
+  }
+
+  function addData(e) {
+    e.preventDefault();
+
+    let cardHolderName = document.getElementById("cardName").value;
+    let cardNumber = document.getElementById("cardNumber").value.replace(/ /g, '');
+    let cardMonth = document.getElementById("month").value;
+    let cardYear = document.getElementById("year").value;
+    let cardCvv = document.getElementById("cvv").value;
+
+    let currentMonth = new Date().getMonth() + 1; // getMonth returns 0-indexed month
+    let currentYear = new Date().getFullYear().toString().slice(-2); // get last 2 digits of the year
+
+    let isValid = true;
+
+    if (!cardHolderName || /^\s*$/.test(cardHolderName)) {
+      document.getElementById('error1').style.display = 'block';
+      document.getElementById("cardName").style.border = '1px solid hsl(0, 100%, 66%)';
+      isValid = false;
+    }
+
+    if (!/^\d{16}$/.test(cardNumber)) {
+      document.getElementById('error2').style.display = 'block';
+      document.getElementById("cardNumber").style.border = '1px solid hsl(0, 100%, 66%)';
+      isValid = false;
+    }
+
+    if (!/^\d{2}$/.test(cardMonth) || cardMonth < 1 || cardMonth > 12 || (cardYear === currentYear && cardMonth < currentMonth)) {
+      document.getElementById('error3').style.display = 'block';
+      document.getElementById("month").style.border = '1px solid hsl(0, 100%, 66%)';
+      isValid = false;
+    }
+
+    if (!/^\d{2}$/.test(cardYear) || cardYear < currentYear || cardYear > 30 || (cardYear === currentYear && cardMonth < currentMonth)) {
+      document.getElementById('error3').style.display = 'block';
+      document.getElementById("year").style.border = '1px solid hsl(0, 100%, 66%)';
+      isValid = false;
+    }
+
+    if (!/^\d{3}$/.test(cardCvv)) {
+      document.getElementById('error4').style.display = 'block';
+      document.getElementById("cvv").style.border = '1px solid hsl(0, 100%, 66%)';
+      isValid = false;
+    }
+
+    if (isValid) {
+      document.getElementById('complteScreen').style.display = "flex";
+      document.getElementById('formContent').style.display = 'none';
+    }
+  }
+</script>
+</html>
